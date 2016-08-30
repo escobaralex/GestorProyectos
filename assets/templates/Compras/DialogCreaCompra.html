@@ -1,0 +1,61 @@
+        <div class="modal-header">
+            <h3 class="modal-title">Agregar Compra</h3>
+        </div>
+        <div class="modal-body">
+			<div>  
+				<form class="form-horizontal" role="form">
+					<div class="form-group">
+		               <label for="inputPassword3" class="col-sm-3 control-label">Tipo</label>
+		               <div class="col-sm-7">
+		                 <select>
+		                   <option>COTIZACION</option>
+		                   <option>ORDEN DE COMPRA</option>
+		                 </select>
+		               </div>
+					</div>
+					<div class="form-group">
+		               <label for="inputPassword3" class="col-sm-3 control-label">Fecha Vencimiento</label>
+		               <div class="col-sm-7">
+		               	<input type="text" class="form-control" id="inputPassword3">
+		               </div>
+					</div>
+					<div class="form-group">
+		               <label for="inputPassword3" class="col-sm-3 control-label">Proveedor</label>
+		               <div class="col-sm-7">
+		                 <select>
+		                   <option>Proveedor 1</option>
+		                   <option>Proveedor 2</option>
+		                 </select>
+		               </div>
+					</div>
+					<div class="form-group">
+		                 <label for="inputPassword3" class="col-sm-3 control-label">Asunto</label>
+		                 <div class="col-sm-7">
+		                     <input type="text" class="form-control" id="inputPassword3">
+		                 </div>
+		             </div>
+		             <div class="form-group">
+		                 <label for="inputPassword3" class="col-sm-3 control-label">Estado</label>
+		               <div class="col-sm-7">
+		                 <select>
+		                   <option>Creada</option>
+		                   <option>Enviada</option>
+		                   <option>Aprobada</option>
+		                   <option>Rechazada</option>
+		                 </select>
+		               </div>
+		             </div>
+		             <div class="form-group">
+		                 <label for="inputPassword3" class="col-sm-3 control-label">Monto</label>
+		                 <div class="col-sm-7">
+		                     <input type="text" class="form-control" id="inputPassword3">
+		                 </div>
+		             </div>
+				</form>
+				<div id="gridAddCompras" ui-grid="gridAddCompras" class="grid"></div>
+			</div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="button" ng-click="ok()">Agregar Compra</button>
+            <button class="btn btn-warning" type="button" ng-click="cancel()">Cancelar</button>
+        </div>

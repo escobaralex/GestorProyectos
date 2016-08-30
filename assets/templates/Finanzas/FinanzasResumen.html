@@ -1,0 +1,38 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<h3>
+				Resumen Finanzas
+			</h3>
+		</div>
+		<br>
+		<div class="row">
+		    <div class="col-md-12">
+			    <uib-tabset active="activeForm">
+			      <uib-tab index="0" heading="Costos y Gastos">
+			        <h4>Costos y Gastos</h4>
+			      	
+			      </uib-tab>
+			      <uib-tab index="1" heading="Ingresos">
+			        <div class="col-md-12">
+			        	<div class="col-md-2">
+			        		<h4>Ingresos</h4>
+			        	</div>
+			        	<div class="col-md-4"></div>
+			        	<div class="col-md-2">
+			        		<a class="btn btn-sm btn-info">Ingresar Flujo</a>
+			        	</div>
+			        </div>
+			        <br><br>
+			        <div id="gridIngresos" ui-grid="{}" class="grid"></div>
+			      </uib-tab>
+			      <uib-tab index="2" heading="Balances">
+			       <h4>Balances</h4>
+			       		<div id="gridBalance1" ui-grid="{}" calss="grid"></div>
+			       		<div id="gridBalance2" ui-grid="{}" calss="grid"></div>
+			      </uib-tab>
+			    </uib-tabset>
+		    </div>
+		</div>
+	</div>
+</div>

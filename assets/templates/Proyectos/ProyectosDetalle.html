@@ -1,0 +1,125 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<h3>
+				Detalles del Proyecto
+			</h3>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<a class="btn btn-sm btn-info">Editar Proyecto</a>
+				<a class="btn btn-sm btn-info">Eliminar Proyecto</a>
+				<a class="btn btn-sm btn-info">Historial del Proyecto</a>
+				
+	        </div>
+		</div>
+		<div class="row">
+		    <div class="col-md-12">
+				<h4>Urbanización Aérea - Los Copihües</h4>
+			    <uib-tabset active="activeForm">
+			      <uib-tab index="0" heading="Detalles">
+			        <h4>Detalles</h4>
+			      	<div class="row">
+				      	<div class="col-md-12">
+				          <div class="col-md-2">
+				            <span class="form-field-item">Nombre del Proyecto:</span>
+				           </div>
+				           <div class="col-md-3">
+				            <span class="form-data-item">Urbanización Aérea - Los Copihües</span>
+				          </div>
+				          <div class="col-md-2">
+				            <span class="form-field-item">Responsable Proyecto:</span>
+				           </div>
+				           <div class="col-md-3">
+				            <span class="form-data-item">Albert Einstein</span>
+				          </div>
+				       </div>
+			       </div>
+			       <div class="row">
+				      	<div class="col-md-12">
+				          <div class="col-md-2">
+				            <span class="form-field-item">Fecha de Inicio:</span>
+				           </div>
+				           <div class="col-md-3">
+				            <span class="form-data-item">2016-06-01</span>
+				          </div>
+				          <div class="col-md-2">
+				            <span class="form-field-item">Fecha de Término:</span>
+				           </div>
+				           <div class="col-md-3">
+				            <span class="form-data-item">2016-07-28</span>
+				          </div>
+				       </div>
+			       </div>
+			       <div class="row">
+				      	<div class="col-md-12">
+				          <div class="col-md-2">
+				            <span class="form-field-item">Centro de Costo:</span>
+				           </div>
+				           <div class="col-md-3">
+				            <span class="form-data-item">PRJ-001-123</span>
+				          </div>
+				          <div class="col-md-2">
+				            <span class="form-field-item">Presupuesto:</span>
+				           </div>
+				           <div class="col-md-3">
+				            <span class="form-data-item">$ 10.000.000</span>
+				          </div>
+				       </div>
+			       </div>
+			       <div class="row">
+				      	<div class="col-md-12">
+				          <div class="col-md-2">
+				            <span class="form-field-item">Estado del Proyecto:</span>
+				           </div>
+				           <div class="col-md-3">
+				            <span class="form-data-item">En Curso</span>
+				          </div>
+				          <div class="col-md-2">
+				            <span class="form-field-item">Cargos Adicionales:</span>
+				           </div>
+				           <div class="col-md-3">
+				            <span class="form-data-item">$ 500.000</span>
+				          </div>
+				       </div>
+			       </div>
+			       <br>
+			       <div class="row">
+				      	<div class="col-md-12">
+				          <div class="col-md-2">
+				            <span class="form-field-item">Descripción:</span>
+				           </div>
+				           <div class="col-md-7">
+				            <p style="text-align:justify;"><span class="form-data-item">Ea vim eius vocent, sapientem dissentiunt cum ea. Cu sed ridens abhorreant suscipiantur. Sit affert definiebas ad, his dolor quando ut. Id erant sensibus mnesarchum cum, mutat choro ocurreret et eos. Agam elitr nostrud nam ut, volumus alienum recusabo eam in, id eos tollit nonumy explicari.</span></p>
+				          </div>
+				       </div>
+			       </div>
+			       <br>
+			       <div class="row">
+			       		<div id="gridProjectTasks" ui-grid="gridProjectTasks" class="grid"></div>
+			       </div>
+			      </uib-tab>
+			      <uib-tab index="1" heading="Gantt">
+			        <h4>Gantt</h4>
+			        <div gantt column-width="40" headers="['month', 'week', 'day']" options="ganttOptions"></div>
+			      </uib-tab>
+			      <uib-tab index="2" heading="Costos / Ingresos">
+			       <h4>Gráficos</h4>
+			       	<div class="row">
+			       		<div class="col-md-8">Valor Ganado (Gastos Proyectados v/s Gastos Reales)
+							<canvas id="graficoValorGanado" height="120" class="chart chart-line" chart-data="data"
+								chart-labels="labels" chart-series="series" chart-options="options"
+								chart-dataset-override="datasetOverride" chart-click="onClick">
+							</canvas>
+			       		</div>
+			       	</div>
+			       	<div class="row">
+			       		<div id="gridValorGanado" ui-grid="{data : gridValorGanadoData}" class="grid"></div>
+			       	</div>
+				        
+			      </uib-tab>
+			    </uib-tabset>
+		    </div>
+		</div>
+	</div>
+</div>

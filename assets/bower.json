@@ -1,0 +1,26 @@
+{
+  "name": "app demo",
+  "homepage": "https://github.com/escobaralex/sails-angular",
+  "authors": [
+    "escobaralex <aescobar@tadis.cl>"
+  ],
+  "description": "Usando Sails + AngularJS + MySql",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "1.5.6",
+    "bootstrap": "^3.3.6",
+    "angular-ui-router": "ui-router#^0.3.1",
+    "angular-sanitize": "^1.5.7",
+    "AngularJS-Toaster": "angularjs-toaster#^2.0.0",
+    "angular-messages": "^1.5.8",
+    "angular-touch": "^1.5.8"
+  }
+}

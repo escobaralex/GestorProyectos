@@ -1,0 +1,38 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<h3>
+				Listado de Compras
+			</h3>
+			<div class="row">
+				<div class="col-md-12">
+					<uib-tabset active="activeForm">
+					  <uib-tab index="0" heading="Gantt">
+				        <h4>Gantt Compras</h4>
+				        <div gantt column-width="40" headers="['month', 'week', 'day']" options="ganttOptions"></div>
+				        <div class="row">
+					      	<div class="col-md-12">
+					          <div id="gridGanttCompras" ui-grid="{data:gridGanttComprasData}" ui-grid-selection class="grid"></div>
+					       </div>
+				       </div>
+				      </uib-tab>
+				      <uib-tab index="1" heading="Ordenes de Compra / Cotizaciones">
+				        <h4>Ordenes de Compra / Cotizaciones</h4>
+				        <div class="row">
+					      	<div class="col-md-12">
+					      		<a class="btn btn-info" ng-click="clickComprasCrear()">Crear Compra</a>
+					      	</div>
+					    </div>
+					    <br>
+				      	<div class="row">
+					      	<div class="col-md-12">
+					          <div id="gridOrdenesCompra" ui-grid="gridOrdenesCompra" ui-grid-selection class="grid"></div>
+					       </div>
+				       </div>
+				      </uib-tab>
+				    </uib-tabset>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

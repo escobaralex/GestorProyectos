@@ -1,0 +1,52 @@
+﻿<div class="container" ng-controller="LoginController">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
+            <div class="jumbotron">
+                <div class="text-center">
+                    <h3>Gestor de Proyectos</h3>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-md-12">
+                        <form novalidate name="form">
+                            <div class="form-group" ng-class="form.email.$invalid && (form.email.$touched || form.$submitted) ? 'has-error has-feedback' : ''">
+                                <!--<label for="email">Email</label>-->
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>
+                                    </span>
+                                    <input type="email" name="email" class="form-control" id="email" placeholder="Ingrese su email" required ng-maxlength="50" ng-model="loginData.userName">
+                                </div>  
+                                <!--                       -->
+                                <div ng-messages="form.email.$error" ng-if="form.email.$touched || form.$submitted" role="alert">
+                                        <p ng-message="maxlength" class="error">Largo máximo: 50 car.</p>
+                                        <p ng-message="required" class="error">Campo obligatorio.</p>
+                                        <p ng-message="email" class="error">Debe ingresar un Email valido</p>
+                                    </div>
+                                
+                            </div>
+                            <div class="form-group" ng-class="form.password.$invalid && (form.password.$touched || form.$submitted) ? 'has-error has-feedback' : ''">
+                                <!--<label for="password">Password</label>-->
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock" aria-hidden="true"></i></span>
+                                <input type="password" name="password" class="form-control" id="password" placeholder="Ingrese su contraseña" required ng-maxlength="50" ng-model="loginData.password">
+                                </div>
+                               <div ng-messages="form.password.$error" ng-if="form.password.$touched || form.$submitted" role="alert">
+                                    <p ng-message="maxlength" class="error">Largo mínimo: 30 car.</p>
+                                    <p ng-message="minlength" class="error">Largo mínimo: 4 car.</p>
+                                    <p ng-message="required" class="error">Campo obligatorio.</p>
+                                </div>
+                            </div>
+                            <br />                            
+                            <button type="submit" class="btn btn-primary btn-lg btn-block" ng-click="login()" 
+                                     button-spinner="loading"  ng-disabled="loading" spinner-icon="fa fa-spinner fa-spin">Ingresar</button>
+                            <!--<a href="http://bevfoodcenter.cl/" class="btn btn-default btn-lg btn-block">
+                                Regresar<img src="assets/img/ic_subdirectory_arrow_left_black_24dp_1x.png" />
+                            </a>-->                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> <!-- /container -->
