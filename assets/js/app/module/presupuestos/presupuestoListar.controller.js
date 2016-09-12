@@ -34,7 +34,7 @@
 		
 		PresupuestoService.listar()
 		.then(function (data) {
-                    $scope.gridPresupuestosListar.data = data;
+        	$scope.gridPresupuestosListar.data = data;
 		})
 		.catch(function (err) {
 			toaster.pop('error', "Ups", 'Ocurrio un error al obtener los presupuestos, error: ' + err);

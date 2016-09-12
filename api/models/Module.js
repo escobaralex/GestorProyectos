@@ -1,32 +1,30 @@
 /**
  * Module.js
  *
- * @description :: TODO: You might write a short summary of how this model works and what it represents here.
+ * @description :: Modulos del sistema
  * @docs        :: http://sailsjs.org/documentation/concepts/models-and-orm/models
  */
 
 module.exports = {
 
   attributes: {
-  	id:{
-  	  type:'integer',
-  	  primaryKey: true,
-  	  autoIncrement: true
-  	},
   	name: {
+      type: 'string',
+      required:true,
+      unique: true,
+      size:50
+    },
+    controller: {
       type: 'string',
       required:true,
       size:50
     },
     description: {
       type: 'string',
-      defaultsTo: '',
-      size:250
-    },
-    // Acciones
-    view:{
-    	type:'string',
+      defaultsTo: 'Sin descripción',
+      size:300
     }
-  }
+  },
+   tableName: 'aut_module'
 };
 

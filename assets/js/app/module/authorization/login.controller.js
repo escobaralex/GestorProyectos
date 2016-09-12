@@ -1,6 +1,6 @@
 ﻿(function () {
     'use strict';
-    function LoginController($scope, $state, AuthService, ngAuthSettings, toaster) {
+    function LoginController($scope, $state, AuthService, ngAuthSettings, toaster,$log) {
         $scope.loading = false;
         $scope.loginData = {
             userName: "",
@@ -22,7 +22,8 @@
                     }
                 },
                  function (err) {
-                     toaster.pop('error', "Error al ingresar", (err !== undefined && err.error_description !== undefined ? err.error_description : JSON.stringify(err || '')) );
+                     $log.error(err !== undefined && err.error_description !== undefined ? err.error_description : JSON.stringify(err || ''));
+                     toaster.pop('error', "Error al ingresar","Usuario y/o contraseña incorrecta.");
                      $scope.loading = false;
                  });
             } else {
@@ -36,6 +37,6 @@
 	.module(app.name)
 	.controller('LoginController', LoginController);
 
-    LoginController.$inject = ['$scope', '$state', 'AuthService', 'ngAuthSettings', 'toaster'];
+    LoginController.$inject = ['$scope', '$state', 'AuthService', 'ngAuthSettings', 'toaster','$log'];
 
 })();

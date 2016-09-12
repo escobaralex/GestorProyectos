@@ -17,7 +17,7 @@
 
             var deferred = $q.defer();
             //{ headers: { 'Content-Type': 'application/x-www-form-urlencoded' } 
-            $http.post(ngAuthSettings.urlServer + 'login', user)
+            $http.post(ngAuthSettings.urlServer + 'auth', user)
                 .success(function (response) {
                 
                 if (response.user) {

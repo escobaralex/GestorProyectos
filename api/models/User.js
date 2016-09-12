@@ -4,7 +4,7 @@
  * @description :: TODO: You might write a short summary of how this model works and what it represents here.
  * @docs        :: http://sailsjs.org/documentation/concepts/models-and-orm/models
  */
-//var bcrypt = require('bcryptjs');
+
 var simplecrypt = require("simplecrypt");
 
 var sc = simplecrypt({
@@ -12,16 +12,8 @@ var sc = simplecrypt({
   salt : "8cf25258d0882a66887943a9d5b7048f9b82b3852a9b19aefce02430497c9f9f"
  });
       
-module.exports = {
-  //autoPK: false,
+module.exports = {  
   attributes: {
-  	/*id:{
-  	  type:'integer',
-      autoIncrement:true,
-  	  primaryKey: true,
-      unique: true,
-      columnName: 'userId'	  
-  	},*/
   	firstname: {
       type: 'string',
       required:true,
@@ -72,6 +64,10 @@ module.exports = {
       type: 'string',
       size:30
     },
+    role:{
+      model: 'role',
+      required:true,
+    },
     toJSON: function() {
       var obj = this.toObject();
       delete obj.password;
@@ -98,6 +94,14 @@ module.exports = {
         });
     });*/
 
-  }  
+  },
+  comparePassword : function (password, user) {
+    var passEncrypt = sc.encrypt(password);
+    if(passEncrypt == user.password)
+      return true;
+    else
+      return false;
+  },
+  tableName:"aut_user"
 };
 

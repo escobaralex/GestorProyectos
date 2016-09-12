@@ -8,15 +8,11 @@
 module.exports = {
 
   attributes: {
-  	id:{
-  	  type:'integer',
-  	  primaryKey: true,
-  	  autoIncrement: true
-  	},
   	name: {
       type: 'string',
       required:true,
-      size:50
+      unique:true,
+      size:60
     },
     description: {
       type: 'string',
@@ -27,6 +23,7 @@ module.exports = {
     	collection:'role',
     	via: 'profiles'
     }
-  }
+  },
+  tableName: "aut_profile"
 };
 

@@ -1,5 +1,5 @@
 module.exports.http = {
-   middleware: {
+  /* middleware: {
 
     passportInit    : require('passport').initialize(),
     passportSession : require('passport').session(),
@@ -22,5 +22,5 @@ module.exports.http = {
             '404',
             '500'
           ],
-     }
+     }*/
 };

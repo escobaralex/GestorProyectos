@@ -26,8 +26,8 @@ module.exports.policies = {
   *                                                                          *
   ***************************************************************************/
 
-   //'*': 'sessionAuth',
-   '*': true,
+   '*': ['isAuthenticated'],
+   //'*': true,
 
 
   /***************************************************************************
@@ -55,8 +55,9 @@ module.exports.policies = {
   AuthController:{
     '*':true
   },
+  /*
   UserController:{
     '*':true
-  }
+  }*/
 
 };

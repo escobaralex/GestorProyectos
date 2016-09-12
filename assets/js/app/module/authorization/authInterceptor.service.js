@@ -1,6 +1,6 @@
 ﻿(function () {
 
-    function AuthInterceptorService($q, $injector, $location, WebStorageService) {
+    function AuthInterceptorService($q, $injector,AuthService, $location, WebStorageService) {
         
         function request(config) {
 
@@ -14,10 +14,8 @@
         }
 
         function responseError(rejection) {
-            if (rejection.status === 401) {
-                
-                var authService = $injector.get('authService');
-                authService.logOut();
+            if (rejection.status === 401) {                
+                AuthService.logOut();
                 $location.path('/login');
             }
             return $q.reject(rejection);
@@ -30,6 +28,6 @@
     angular.module(app.name)
     .service('AuthInterceptorService', AuthInterceptorService);
 
-    AuthInterceptorService.$inject = ['$q', '$injector', '$location', 'WebStorageService'];
+    AuthInterceptorService.$inject = ['$q', '$injector', 'AuthService','$location', 'WebStorageService'];
 
 })();
