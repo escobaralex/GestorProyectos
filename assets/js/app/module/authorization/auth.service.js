@@ -9,7 +9,9 @@
             rol: "",
             usuario: "",
         };
-
+        function isAuthenticated(){
+            return authentication.isAuth;
+        }
         function login(loginData) {
 
             //var user = "?email=" + loginData.userName + "&password=" + loginData.password;
@@ -70,7 +72,6 @@
         }
 
         function fillAuthData() {
-
             var authData = WebStorageService.get('ss', 'authInfo');
             if (authData) {
                 authentication.isAuth = true;
@@ -89,6 +90,7 @@
         this.logout = logout;
         this.fillAuthData = fillAuthData;
         this.authentication = authentication;
+        this.isAuthenticated = isAuthenticated;
     }
 
     angular.module(app.name)

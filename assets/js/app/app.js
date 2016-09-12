@@ -210,19 +210,16 @@
 
             $rootScope.$on('$stateChangeStart',
                 function (event, toState, toParams, fromState, fromParams) {
-                    if (toState.name == 'no-enrutar') {
+                    if(!AuthService.isAuthenticated())
+                        $state.go('login');
+                    if (toState.name == 'no-enrutar') 
                         event.preventDefault();
-                    } else {
-                        cfpLoadingBar.start();
-                    }
-
-
-                })
+                    else 
+                        cfpLoadingBar.start();                    
+            });
             $rootScope.$on('$stateChangeSuccess', function () {
-
                 $timeout(function () {
                     cfpLoadingBar.complete();
-
                 }, 250);
             })
         }])
