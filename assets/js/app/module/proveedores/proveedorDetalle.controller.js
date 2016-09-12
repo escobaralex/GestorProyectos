@@ -1,6 +1,6 @@
 (function () {
     'use strict';
-    function ProveedoresDetalleController($scope, $state,toaster,$log,ProveedoresService) {
+    function ProveedoresDetalleController($scope, $state,toaster,$log,ProveedorService) {
 		$scope.tareas = [
 			{
 				 "numeroTarea":"1",
@@ -116,6 +116,6 @@
 	.module(app.name)
 	.controller('ProveedoresDetalleController',ProveedoresDetalleController);
 
-    ProveedoresDetalleController.$inject = ['$scope', '$state','toaster','$log','ProveedoresService'];
+    ProveedoresDetalleController.$inject = ['$scope', '$state','toaster','$log','ProveedorService'];
 
 })();

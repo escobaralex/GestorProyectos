@@ -55,6 +55,9 @@ module.exports.policies = {
   AuthController:{
     '*':true
   },
+  GroupController:{
+    '*':true
+  }
   /*
   UserController:{
     '*':true

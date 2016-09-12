@@ -1,6 +1,6 @@
 (function () {
 
-    function ProveedoresService($http, $q, $log) {
+    function ProveedorService($http, $q, $log) {
         var proveedoresDummy = [{
 		              		"numero":"1",
 		              		"nomCliente":"Inmobiliaria los Montes",
@@ -106,8 +106,8 @@
     }
 
     angular.module(app.name)
-    .service('ProveedoresService', ProveedoresService);
+    .service('ProveedorService', ProveedorService);
 
-    ProveedoresService .$inject = ['$http', '$q', '$log'];
+    ProveedorService .$inject = ['$http', '$q', '$log'];
 
 })();

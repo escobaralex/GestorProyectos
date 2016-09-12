@@ -25,10 +25,6 @@ module.exports.routes = {
     view: 'homepage'
   },
 
-  'post /login': 'AuthController.login',
-
-  '/logout': 'AuthController.logout',
-
   /* No borrar, necesario para funcionamiento de Swagger  */
     'get/groups/:id': {
         controller: 'GroupController',
