@@ -1,31 +1,17 @@
 (function () {
 
     function ProyectoService($http, $q, $log) {
-        var proyectosDummys = [{
-		              		"numero":"1",
-		              		"nomCliente":"Inmobiliaria los Montes",
-		              		"asunto":"Excavación Red Subterránea",
-							"fecha":"2016-05-31",
-							"estado":"Enviada Cliente",
-							"monto":"$  8.000.000"
-		                  },
-		                  {
-		              		"numero":"2",
-		              		"nomCliente":"Cliente AB",
-		              		"asunto":"Urbanización Subterránea",
-							"fecha":"2016-05-31",
-							"estado":"Aprobada",
-							"monto":"$ 13.000.000"
-		                  },
-		                  {
-		              		"numero":"3",
-		              		"nomCliente":"Cliente KP",
-		              		"asunto":"Mantenimiento Redes Eléctricas",
-		              		"fecha":"2016-05-31",
-							"estado":"Creada",
-							"monto":"$  3.000.000"
-		                  }
-	                  ];
+        var proyectosDummys = [
+	                    {
+	                    	"numero":1,
+	                    	"nombre":"Urbanización Aérea - Cond. Los Copihües",
+	                    	"inicio":"2016-05-31",
+	                    	"termino":"2016-06-28",
+	                    	"cliente": "Inmobiliaria Los Copihües",
+	                    	"avance":"50%",
+	                    	"desviacion":"0%"
+	                    }
+                ];
 	
         
         function listar() {

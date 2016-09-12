@@ -23,16 +23,9 @@
                 .success(function (response) {
                 
                 if (response.user) {
-                    WebStorageService.set('ss', 'authInfo', { token: response.access_token, userName: loginData.userName, refreshToken: "", useRefreshTokens: false });
-                    
                     authentication.isAuth = true;
-                    authentication.userName = loginData.userName;
-                    authentication.useRefreshTokens = loginData.useRefreshTokens;
-                    /*var tokenPayload = jwtHelper.decodeToken(response.access_token);
-                    if (authentication.isAuth == true && tokenPayload) {
-                        authentication.rol = tokenPayload.rol;
-                        authentication.usuario = tokenPayload.nombres + ' ' + tokenPayload.apellidos;
-                    } */               
+                    authentication.userName = loginData.userName;                    
+                    WebStorageService.set('ss', 'authInfo', { token: response.token , user : response.user});                    
                 }
                 
                 deferred.resolve(response);
@@ -76,13 +69,12 @@
             if (authData) {
                 authentication.isAuth = true;
                 authentication.userName = authData.userName;
-                authentication.useRefreshTokens = authData.useRefreshTokens;
-                var tokenPayload = jwtHelper.decodeToken(authData.token);
+                /*var tokenPayload = jwtHelper.decodeToken(authData.token);
                 if (authentication.isAuth == true && tokenPayload) {
                     authentication.rol = tokenPayload.rol;
                     authentication.usuario = tokenPayload.nombres + ' ' + tokenPayload.apellidos;
                     authentication.empresa = tokenPayload.empresa;                    
-                }
+                }*/
             }
         }
 
