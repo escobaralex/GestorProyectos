@@ -1,6 +1,6 @@
 (function () {
     'use strict';
-    function RecursoListarController($scope, $state,toaster,$log,RecursosService) {
+    function RecursoListarController($scope, $state,toaster,$log,RecursoService) {
        $scope.proyectos = [
 	                    {
 	                    	"numero":1,
@@ -40,6 +40,6 @@
 	.module(app.name)
 	.controller('RecursoListarController', RecursoListarController);
 
-    RecursoListarController.$inject = ['$scope', '$state','toaster','$log','RecursosService'];
+    RecursoListarController.$inject = ['$scope', '$state','toaster','$log','RecursoService'];
 
 })();
