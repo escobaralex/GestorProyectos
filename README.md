@@ -1,6 +1,5 @@
 # Gestor de Proyectos
 
-
 ### [SailsJs](http://sailsjs.org) + AngularJS + MySql
 
  + Explorador Rest - Swagger-UI [http://localhost:1337/docs/](http://localhost:1337/docs/)
