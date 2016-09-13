@@ -14,8 +14,7 @@
         }
 
         function responseError(rejection) {
-            if (rejection.status === 401) {
-                
+            if (rejection.status === 401) {                
                 var authService = $injector.get('AuthService');
                 authService.logOut();
                 $location.path('/login');

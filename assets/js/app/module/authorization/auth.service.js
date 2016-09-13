@@ -13,15 +13,11 @@
             return authentication.isAuth;
         }
         function login(loginData) {
-
-            //var user = "?email=" + loginData.userName + "&password=" + loginData.password;
-            var user = { "email" : loginData.userName , "password" : loginData.password };
-
+            
             var deferred = $q.defer();
-            //{ headers: { 'Content-Type': 'application/x-www-form-urlencoded' } 
-            $http.post(ngAuthSettings.urlServer + 'auth', user)
-                .success(function (response) {
-                
+             
+            $http.post(ngAuthSettings.urlServer + 'auth', { "email" : loginData.userName , "password" : loginData.password })
+                .success(function (response) {                
                 if (response.user) {
                     authentication.isAuth = true;
                     authentication.userName = loginData.userName;                    
@@ -38,30 +34,9 @@
         }
 
         function logout() {
-            
-            var deferred = $q.defer();
-            var uri = URL_API + 'api/accounts/logout'
-            $http({
-                url: uri,
-                method: "GET"
-            })
-            .success(function (data, status, headers, config) {
-                $log.info('Sesión cerrada correctamente');                
-                WebStorageService.remove('ss', 'authInfo');
-                authentication.isAuth = false;
-                authentication.userName = "";
-                authentication.useRefreshTokens = false;
-                authentication.rol = "";
-                authentication.usuario = "";
-                authentication.empresa = "";
-                authentication.idEmpresa = "";
-                deferred.resolve(data);
-            })
-            .error(function (err) {
-                $log.error('error al intentar cerrar sesion.');
-                deferred.reject(err)
-            });
-            return deferred.promise;
+            //TODO: borrar token storage y pedir confirmacion de cierre de sesion y redirigir al login
+            WebStorageService.remove('ss', 'authInfo');
+            return true;
         }
 
         function fillAuthData() {

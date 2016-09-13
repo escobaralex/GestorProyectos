@@ -210,8 +210,10 @@
 
             $rootScope.$on('$stateChangeStart',
                 function (event, toState, toParams, fromState, fromParams) {
-                    if(!AuthService.isAuthenticated())
+                    if(!AuthService.isAuthenticated()){
+                        event.preventDefault();
                         $state.go('login');
+                    }
                     if (toState.name == 'no-enrutar') 
                         event.preventDefault();
                     else 
