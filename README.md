@@ -1,0 +1,2 @@
+# GestorProyectos
+SailsJs + AngularJs + MySql
