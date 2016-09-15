@@ -1,24 +1,13 @@
 (function () {
     'use strict';
-    function UsuarioListarController($scope, $state,toaster,$log,RecursoService) {
-       $scope.proyectos = [
-	                    {
-	                    	"numero":1,
-	                    	"nombre":"Urbanización Aérea - Cond. Los Copihües",
-	                    	"inicio":"2016-05-31",
-	                    	"termino":"2016-06-28",
-	                    	"cliente": "Inmobiliaria Los Copihües",
-	                    	"avance":"50%",
-	                    	"desviacion":"0%"
-	                    }
-                ];
-		$scope.gridProyectosListar = {
+    function UsuarioListarController($scope, $state,toaster,$log,UsuarioService) {
+       
+		$scope.gridListar = {
 			enableRowSelection: true, 
 			enableRowHeaderSelection: false,
 			enableColumnMenus: true,
 			multiSelect: false,
-			olumnDefs: [
-			            { name: 'numero', width: 80 },
+			columnDefs: [			            
 			            { name: 'nombre' },
 			            { name: 'inicio' },
 			            { name: 'termino' },
@@ -28,9 +17,15 @@
 			           ]
 		};
 
-		$scope.gridProyectosListar.rowTemplate= "<div ng-dblclick=\"grid.appScope.showInfo(row)\" ng-repeat=\"(colRenderIndex, col) in colContainer.renderedColumns track by col.colDef.name\" class=\"ui-grid-cell\" ng-class=\"{ 'ui-grid-row-header-cell': col.isRowHeader }\" ui-grid-cell></div>";
-		$scope.gridProyectosListar.data = $scope.proyectos;
+		$scope.gridListar.rowTemplate= "<div ng-dblclick=\"grid.appScope.showInfo(row)\" ng-repeat=\"(colRenderIndex, col) in colContainer.renderedColumns track by col.colDef.name\" class=\"ui-grid-cell\" ng-class=\"{ 'ui-grid-row-header-cell': col.isRowHeader }\" ui-grid-cell></div>";
 		
+		UsuarioService.listar()
+		.then(function (data) {
+        	$scope.gridListar.data = data;
+		})
+		.catch(function (err) {
+			toaster.pop('error', "Ups", 'Ocurrio un error al obtener los usuarios, error: ' + err);
+		});	
 		$scope.showInfo = function(row){
 			$state.go('ProyectosDetalle');
 		}
@@ -40,6 +35,6 @@
 	.module(app.name)
 	.controller('UsuarioListarController',UsuarioListarController);
 
-    UsuarioListarController.$inject = ['$scope', '$state','toaster','$log','RecursoService'];
+    UsuarioListarController.$inject = ['$scope', '$state','toaster','$log','UsuarioService'];
 
 })();

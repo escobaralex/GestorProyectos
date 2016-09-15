@@ -1,54 +1,22 @@
 (function () {
     'use strict';
-    function UsuarioCrearController($scope, $state,toaster,$uibModal,$log,RecursoService) {
-        $scope.materials = [
-		                 {
-		                     "tipoRecurso": "CIVIL",
-		                     "nombreRecurso":"Juan Gonzalez",
-		                     "material":"Excavador",
-		                     "tipoMaterial":"Excavador",
-		                     "categoriaMaterial": "Experimentado",
-		                     "unidades":"Horas",
-		                     "cantidadUnidades":"40"
-		                 },
-		                 {
-		                     "tipoRecurso": "MAQUINARIA CIVIL",
-		                     "nombreRecurso":"CAT 420F2 ",
-		                     "material":"Retroexcavadora",
-		                     "tipoMaterial":"",
-		                     "categoriaMaterial": "",
-		                     "unidades":"Horas",
-		                     "cantidadUnidades":"40"
-		                 }
-		                 
-	             ];
-	
-		$scope.openDialogAddResource = function(rowSelected){
-			var modalInstance = $uibModal.open({
-					animation: false,
-					templateUrl: 'templates/Recursos/DialogAddResource.html',
-					controller: 'DialogAddResourceController',
-					size: 'lg',
-					resolve: {
-					}					 
-				}
-			);
-			
-			modalInstance.closed.then(
-				function () {
-					//...
-				},
-				function () {
-				//dismissed
-				}
-			);			
-		}
+    function UsuarioCrearController($scope, $state,toaster,$uibModal,$log,UsuarioService) {        
+		$scope.newUsuario = {};
+		$scope.roles = [];
+		
+		UsuarioService.roles()
+		.then(function (data) {
+        	$scope.roles = data;
+		})
+		.catch(function (err) {
+			toaster.pop('error', "Ups", 'Ocurrio un error al obtener los roles, error: ' + err);
+		});
 	}
 
     angular
 	.module(app.name)
 	.controller('UsuarioCrearController', UsuarioCrearController);
 
-    UsuarioCrearController.$inject = ['$scope', '$state','toaster','$uibModal','$log','RecursoService'];
+    UsuarioCrearController.$inject = ['$scope', '$state','toaster','$uibModal','$log','UsuarioService'];
 
 })();

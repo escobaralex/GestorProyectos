@@ -2,24 +2,13 @@
     'use strict';
     function LogoutController($scope, $state, AuthService, toaster) {
         $scope.loading = false;
-        $scope.loginData = {
-            userName: "",
-            password: "",
-            useRefreshTokens: false
-        };
-
-        authService.login($scope.loginData).then(function (response) {
-            if(response.user){
-                $state.go('login');
-            }else{
-                toaster.pop('error', "Error al salir del sistema ", response.message);
-                $scope.loading = false;
-            }                    
-        },
-        function (err) {
-            toaster.pop('error', "Error al salir del sistema ", err.message);
+        if(authService.logout()) {
+            $state.go('login');
+        }else{        
+            toaster.pop('error', "Ha ocurrido un error al salir del sistema."+  
+            "  Vuelva a intentar, si el error persiste, cierre su navegador.");
             $scope.loading = false;
-        });
+        }
     }
 
     angular

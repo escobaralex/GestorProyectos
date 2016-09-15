@@ -28,6 +28,9 @@
 	                  ];
 	
         
+        
+        
+        
         function listar() {
             if(!app.callApi) return recursosDummys;
             var deferred = $q.defer();
@@ -46,7 +49,7 @@
             
             var deferred = $q.defer();
             
-            $http.post(app.urlServer + 'user', user)
+            $http.post(app.urlServer + 'user/create', user)
             .success(function (response) {                
                 deferred.resolve(response);                
             }).error(function (err, status) {                

@@ -36,7 +36,7 @@
         function logout() {
             //TODO: borrar token storage y pedir confirmacion de cierre de sesion y redirigir al login
             WebStorageService.remove('ss', 'authInfo');
-            return true;
+            var state = $injector.get('$state');
         }
 
         function fillAuthData() {
