@@ -13,11 +13,31 @@ module.exports = function (req, res, next) {
     _Obtener la acción
     _Obtener Id de Usuario
 
-    Validar si cuenta con los permisos
-  */
-  if (req.headers && req.headers.authorization) {
-    next();
-  } else {
-    return res.json(401, {err: 'No cuenta con los permisos para esta acción.'});
-  }
+    Validar si cuenta con los permisos  */
+  var verb = req.method;
+  var module = req.options.controller;
+  var method = req.options.action;  
+  var usuarioId = req.token.id;
+  var result = false;
+  
+  //TODO: Validar que el verbo sea consistente con el metodo
+  var permission = null;
+
+  if((method == "create" || method == "add" ) && verb == "POST")
+    permission = "add";
+
+  if((method == "find" || method == "findOne" ) && verb == "GET")
+    permission = "view";
+
+  if(method == "update" && verb == "PUT")
+    permission = "renow";
+
+  if((method == "remove" || method == "destroy" ) && verb == "DELETE")
+    permission = "remove";
+
+  if(!permission)
+    return res.json(401, {err: 'Error al intentar verificar los permisos del usuario'});
+    
+    
+
 };

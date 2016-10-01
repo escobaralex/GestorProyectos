@@ -23,6 +23,17 @@ module.exports = {
       type: 'string',
       defaultsTo: 'Sin descripción',
       size:300
+    },
+    roles:{
+      collection: 'role',
+      via: 'modules',
+      through: 'rolemodule',
+      dominant: true
+    },
+    profiles:{
+      collection: 'profile',
+      via: 'modules',
+      through: 'profilemodule'
     }
   },
    tableName: 'aut_module'

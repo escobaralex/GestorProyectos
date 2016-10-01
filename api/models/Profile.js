@@ -6,7 +6,7 @@
  */
 
 module.exports = {
-
+  tableName: "aut_profile",
   attributes: {
   	name: {
       type: 'string',
@@ -20,10 +20,15 @@ module.exports = {
       size:250
     },
     roles:{
-    	collection:'role',
-    	via: 'profiles'
+    	collection: 'role',
+    	via: 'profiles',
+      through: 'roleprofile'
+    },
+    modules:{
+    	collection: 'module',
+    	via: 'profiles',
+    	through: 'profilemodule'
     }
-  },
-  tableName: "aut_profile"
+  }  
 };
 

@@ -101,7 +101,7 @@ module.exports = {
       return true;
     else
       return false;
-  },
+  },  
   tableName:"aut_user"
 };
 

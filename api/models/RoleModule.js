@@ -1,19 +1,20 @@
 /**
- * ProfileModule.js
+ * RoleModule.js
  *
  * @description :: TODO: You might write a short summary of how this model works and what it represents here.
  * @docs        :: http://sailsjs.org/documentation/concepts/models-and-orm/models
  */
 
-module.exports = {  
-  tableName:"aut_profile_module",
+module.exports = {
+
   attributes: {
-  	profile: {
-        model: 'profile',    
+  	role: {
+        model: 'role',    
     },
     module: {
         model: 'module',      
-    },add: {
+    },
+    add: {
       type:'boolean',
       defaultsTo: false,
     },
@@ -33,6 +34,7 @@ module.exports = {
       type:'boolean',
       defaultsTo: false,
     }
-  }
+  },
+  tableName:"aut_role_module"
 };
 

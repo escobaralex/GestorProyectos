@@ -14,15 +14,23 @@ module.exports = {
       unique:true,
       size:60
     },
+    description: {
+      type: 'string',
+      size:300
+    },    
     reportTo: {
       model: 'role',      
     },
     profiles:{
     	collection: 'profile',
     	via: 'roles',
-    	dominant: true
+      through: 'roleprofile'
+    },
+    modules:{
+      collection: 'module',
+      via: 'roles',
+      through: 'rolemodule'
     }
   },
   tableName:"aut_role"
 };
-
