@@ -9,7 +9,7 @@
 module.exports = function (req, res, next) {  
   var verb = req.method;
   var method = req.options.action;
-  
+  var hasPermission = false;
   var _userId = req.token.id;
   var _module = req.options.controller;    
   var _action = null;
@@ -30,13 +30,25 @@ module.exports = function (req, res, next) {
   if(!_action || null == _action)
     return res.json(401, {err: 'Error al intentar verificar los permisos del usuario'});
     
-  User.query({
-    text: "CALL HAS_PERMISSION($1,$2)",
+  /*User.query({
+    text: "CALL `HasPermission`($1,$2);",
     values: [ _userId, _module ]
-  }, function(err, result) {
-    if(!result || null == result || result.length == 0 || result[0][_action])
+
+  },*/
+  User.query("CALL `HasPermission`(" + _userId + "," + "'"+_module+"');",[], function(err, result) {
+    if(!result || null == result || result.length == 0){
+      sails.log.error(err);
       return res.json(401, {err: 'No cuenta con permisos para realizar esta acción.'});
-    
-    next();
+    }else{  
+      for(var i = 0; i < result.length; i++){
+        if(result[0][i][_action])
+          hasPermission = true;    
+      }
+      if(hasPermission){
+        next();
+      }else{
+        return res.json(401, {err: 'No cuenta con permisos para realizar esta acción.'});
+      }
+    }    
   });
 };
