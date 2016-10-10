@@ -39,10 +39,13 @@ module.exports = function (req, res, next) {
     if(!result || null == result || result.length == 0){
       sails.log.error(err);
       return res.json(401, {err: 'No cuenta con permisos para realizar esta acción.'});
-    }else{  
+    }else{
       for(var i = 0; i < result.length; i++){
-        if(result[0][i][_action])
-          hasPermission = true;    
+        try {
+           if(result[0][i][_action])
+              hasPermission = true;  
+        } catch (error) {          
+        }         
       }
       if(hasPermission){
         next();

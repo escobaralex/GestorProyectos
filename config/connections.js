@@ -46,7 +46,7 @@ module.exports.connections = {
      port: 3307,
      user: 'root', //optional
      password: 'mabidoop', //optional
-     database: 'sailsDB' //optional
+     database: 'proyectosWF' //optional
      
    },
      
