@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Gestor de Proyectos
 
 ### [SailsJs](http://sailsjs.org) + AngularJS + MySql
@@ -11,4 +10,4 @@
 =======
 # GestorProyectos
 SailsJs + AngularJs + MySql
->>>>>>> 95777425f6dc706d2432d6170db7a629e71eb560
+
