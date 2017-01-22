@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Gestor de Proyectos
 
 ### [SailsJs](http://sailsjs.org) + AngularJS + MySql
@@ -7,3 +8,7 @@
  + Para poblado inicial de la BD utilizar el archivo: config/bootstrap.js
 
 + Luego de levantar el servidor (sails lift) es necesario esperar hasta que se ejecuten las tareas grunt, sino pueden faltar archivos por cargar.
+=======
+# GestorProyectos
+SailsJs + AngularJs + MySql
+>>>>>>> 95777425f6dc706d2432d6170db7a629e71eb560
